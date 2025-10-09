@@ -294,10 +294,12 @@ namespace OpenSeesUtility
                             {
                                 if (Value == 1)
                                 {
-
-                                    _dt.Add(Math.Round(Math.Sqrt(Math.Pow(ddiv[0][0], 2) + Math.Pow(ddiv[0][1], 2) + Math.Pow(ddiv[0][2], 2)) * scale / dscale, digit).ToString("F").Substring(0, digit) + "mm");
-                                    _dt.Add(Math.Round(Math.Sqrt(Math.Pow(ddiv[div][0], 2) + Math.Pow(ddiv[div][1], 2) + Math.Pow(ddiv[div][2], 2)) * scale / dscale, digit).ToString("F").Substring(0, digit) + "mm");
-                                    _dt.Add(Math.Round(Math.Sqrt(Math.Pow(ddiv[(int)(div / 2)][0], 2) + Math.Pow(ddiv[(int)(div / 2)][1], 2) + Math.Pow(ddiv[(int)(div / 2)][2], 2)) * scale / dscale, digit).ToString("F").Substring(0, digit) + "mm");
+                                    string dval = Math.Round(Math.Sqrt(Math.Pow(ddiv[0][0], 2) + Math.Pow(ddiv[0][1], 2) + Math.Pow(ddiv[0][2], 2)) * scale / dscale, digit).ToString("F");
+                                    _dt.Add(dval.Substring(0, Math.Max(dval.IndexOf("."),digit)) + "mm");
+                                    dval = Math.Round(Math.Sqrt(Math.Pow(ddiv[div][0], 2) + Math.Pow(ddiv[div][1], 2) + Math.Pow(ddiv[div][2], 2)) * scale / dscale, digit).ToString("F");
+                                    _dt.Add(dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
+                                    dval = Math.Round(Math.Sqrt(Math.Pow(ddiv[(int)(div / 2)][0], 2) + Math.Pow(ddiv[(int)(div / 2)][1], 2) + Math.Pow(ddiv[(int)(div / 2)][2], 2)) * scale / dscale, digit).ToString("F");
+                                    _dt.Add(dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                 }
                                 if (Delta == 1)
                                 {
@@ -313,9 +315,12 @@ namespace OpenSeesUtility
                             {
                                 if (Value == 1)
                                 {
-                                    _dt.Add(Math.Round(Math.Sqrt(Math.Pow(ddiv[0][0], 2) + Math.Pow(ddiv[0][1], 2)) * scale / dscale, digit).ToString("F").Substring(0, digit) + "mm");
-                                    _dt.Add(Math.Round(Math.Sqrt(Math.Pow(ddiv[div][0], 2) + Math.Pow(ddiv[div][1], 2)) * scale / dscale, digit).ToString("F").Substring(0, digit) + "mm");
-                                    _dt.Add(Math.Round(Math.Sqrt(Math.Pow(ddiv[(int)(div / 2)][0], 2) + Math.Pow(ddiv[(int)(div / 2)][1], 2)) * scale / dscale, digit).ToString("F").Substring(0, digit) + "mm");
+                                    string dval = Math.Round(Math.Sqrt(Math.Pow(ddiv[0][0], 2) + Math.Pow(ddiv[0][1], 2)) * scale / dscale, digit).ToString("F");
+                                    _dt.Add(dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
+                                    dval = Math.Round(Math.Sqrt(Math.Pow(ddiv[div][0], 2) + Math.Pow(ddiv[div][1], 2)) * scale / dscale, digit).ToString("F");
+                                    _dt.Add(dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
+                                    dval = Math.Round(Math.Sqrt(Math.Pow(ddiv[(int)(div / 2)][0], 2) + Math.Pow(ddiv[(int)(div / 2)][1], 2)) * scale / dscale, digit).ToString("F");
+                                    _dt.Add(dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                 }
                                 if (Delta == 1)
                                 {
@@ -332,11 +337,14 @@ namespace OpenSeesUtility
                                 if (Value == 1)
                                 {
                                     var fugou = ""; if (ddiv[0][2] < 0) { fugou = "-"; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[0][2] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    string dval=Math.Round(Math.Abs(ddiv[0][2] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                     if (ddiv[div][2] < 0) { fugou = "-"; } else { fugou = ""; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[div][2] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    dval = Math.Round(Math.Abs(ddiv[div][2] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                     if (ddiv[(int)(div / 2)][2] < 0) { fugou = "-"; } else { fugou = ""; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[(int)(div / 2)][2] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    dval = Math.Round(Math.Abs(ddiv[(int)(div / 2)][2] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                 }
                                 if (Delta == 1)
                                 {
@@ -353,11 +361,14 @@ namespace OpenSeesUtility
                                 if (Value == 1)
                                 {
                                     var fugou = ""; if (ddiv[0][0] < 0) { fugou = "-"; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[0][0] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    string dval = Math.Round(Math.Abs(ddiv[0][0] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                     if (ddiv[div][0] < 0) { fugou = "-"; } else { fugou = ""; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[div][0] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    dval = Math.Round(Math.Abs(ddiv[div][0] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                     if (ddiv[(int)(div / 2)][0] < 0) { fugou = "-"; } else { fugou = ""; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[(int)(div / 2)][0] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    dval = Math.Round(Math.Abs(ddiv[(int)(div / 2)][0] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                 }
                                 if (Delta == 1)
                                 {
@@ -374,11 +385,14 @@ namespace OpenSeesUtility
                                 if (Value == 1)
                                 {
                                     var fugou = ""; if (ddiv[0][1] < 0) { fugou = "-"; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[0][1] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    string dval = Math.Round(Math.Abs(ddiv[0][1] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                     if (ddiv[div][1] < 0) { fugou = "-"; } else { fugou = ""; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[div][1] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    dval = Math.Round(Math.Abs(ddiv[div][1] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                     if (ddiv[(int)(div / 2)][1] < 0) { fugou = "-"; } else { fugou = ""; }
-                                    _dt.Add(fugou + Math.Round(Math.Abs(ddiv[(int)(div / 2)][1] * scale / dscale), digit).ToString("F").Substring(0, digit) + "mm");
+                                    dval = Math.Round(Math.Abs(ddiv[(int)(div / 2)][1] * scale / dscale), digit).ToString("F");
+                                    _dt.Add(fugou + dval.Substring(0, Math.Max(dval.IndexOf("."), digit)) + "mm");
                                 }
                                 if (Delta == 1)
                                 {
@@ -972,7 +986,8 @@ namespace OpenSeesUtility
                     Point3d point = (_p1[i] + _p2[i]) / 2.0;
                     plane.Origin = point;
                     viewport.GetWorldToScreenScale(point, out double pixPerUnit); size /= pixPerUnit;
-                    Text3d drawText = new Text3d(_Nvalue[i].ToString("F").Substring(0, digit) + _funit[i] + _lunit[i], plane, size);
+                    string nval = _Nvalue[i].ToString("F");
+                    Text3d drawText = new Text3d(nval.Substring(0, Math.Max(nval.IndexOf("."), digit)) + _funit[i] + _lunit[i], plane, size);
                     args.Display.Draw3dText(drawText, _c3[i]); drawText.Dispose();
                 }
             }
@@ -987,7 +1002,8 @@ namespace OpenSeesUtility
                 Point3d point = _pt2[i];
                 plane.Origin = point;
                 viewport.GetWorldToScreenScale(point, out double pixPerUnit); size /= pixPerUnit;
-                Text3d drawText = new Text3d(_Mvalue[i].ToString("F").Substring(0, digit) + _funit[i] + _lunit[i], plane, size);
+                string mval = _Mvalue[i].ToString("F");
+                Text3d drawText = new Text3d(mval.Substring(0, Math.Max(mval.IndexOf("."), digit)) + _funit[i] + _lunit[i], plane, size);
                 args.Display.Draw3dText(drawText, Color.MediumVioletRed); drawText.Dispose();
             }
             for (int i = 0; i < _surf.Count; i++)
@@ -1004,7 +1020,8 @@ namespace OpenSeesUtility
                 {
                     double size = fontsize; Point3d point = (_kabew_p1[i] + _kabew_p2[i]) / 2.0; plane.Origin = point;
                     viewport.GetWorldToScreenScale(point, out double pixPerUnit); size /= pixPerUnit;
-                    Text3d drawText = new Text3d(_kabeq[i].ToString("F").Substring(0, digit) + unit_of_force, plane, size);
+                    string kval = _kabeq[i].ToString("F");
+                    Text3d drawText = new Text3d(kval.Substring(0, Math.Max(kval.IndexOf("."), digit)) + unit_of_force, plane, size);
                     args.Display.Draw3dText(drawText, Color.Chocolate); drawText.Dispose();
                 }
             }
@@ -1046,7 +1063,8 @@ namespace OpenSeesUtility
                 Point3d point = _pt[i];
                 plane.Origin = point;
                 viewport.GetWorldToScreenScale(point, out double pixPerUnit); size /= pixPerUnit;
-                Text3d drawText = new Text3d(_value[i].ToString("F").Substring(0, digit) + unit_of_force, plane, size);
+                string val = _value[i].ToString("F");
+                Text3d drawText = new Text3d(val.Substring(0, Math.Max(val.IndexOf("."), digit)) + unit_of_force, plane, size);
                 args.Display.Draw3dText(drawText, _c2[i]); drawText.Dispose();
             }
             ///*************************************************************************************************
